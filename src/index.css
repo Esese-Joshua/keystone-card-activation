@@ -1,13 +1,126 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+ body {
+    font-family: "Inter", "Arial", sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f9fafb; /* light neutral background */
+    color: #333;
+  }
+  
+  .container {
+    max-width: 420px;
+    margin: 50px auto;
+    background: #fff;
+    padding: 30px 25px;
+    border-radius: 16px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 25px;
+  }
+  
+  .logo {
+    width: 50px;
+    height: auto;
+  }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
+  .profile{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .user {
+    width: 50px;
+    height: 45px;
+    border-radius: 50%;
+
+  }
+
+  .account-info {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .acct-num {
+    font-weight: 700;
+    font-size: 15px;
+    color: #111;
+  }
+  
+  .acct-name {
+    font-size: 13px;
+    color: #555;
+  }
+  
+  .intro {
+    text-align: center;
+    margin-bottom: 25px;
+  }
+  
+  .title {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0;
+    color: #111;
+  }
+  
+  .subtitle {
+    font-size: 14px;
+    color: grey;
+    margin-top: 6px;
+  }
+
+  .debit-card {
+    width: 100%;
+    /* max-width: 500px; */
+    margin-bottom: 15px;
+    border-radius: 10px;
+    /* background: grey; */
+  }
+  
+  .card-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 270px;
+    margin-left: 70px;
+  }
+  
+  .card-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0;
+    color: #222;
+  }
+  
+  .status {
+    padding: 4px 10px;
+    font-size: 13px;
+    border-radius: 20px;
+    font-weight: 500;
+  }
+  
+  .status.inactive {
+    background: #c8bcbc70;
+  }
+  
+  .btn-primary {
+    margin-top: 100px;
+    width: 100%;
+    background: #003366;
+    color: #fff;
+    border: none;
+    padding: 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 400;
+
+    box-shadow: 0 7px 10px rgba(0, 0, 0, 0.2);
+
+  }
