@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/keystone-card-activation/static/css/main.d66548f6.css",
-    "main.js": "/keystone-card-activation/static/js/main.6727bd59.js",
+    "main.js": "/keystone-card-activation/static/js/main.279b9965.js",
     "static/media/card2.png": "/keystone-card-activation/static/media/card2.1aabc9a2e194b97f0cb6.png",
     "static/media/card.png": "/keystone-card-activation/static/media/card.bbc019cb907fee712f74.png",
     "static/media/logo.png": "/keystone-card-activation/static/media/logo.f3fe85c2bb4e43d4ac92.png",
     "static/media/user1.png": "/keystone-card-activation/static/media/user1.192e31a80990b62494aa.png",
     "index.html": "/keystone-card-activation/index.html",
     "main.d66548f6.css.map": "/keystone-card-activation/static/css/main.d66548f6.css.map",
-    "main.6727bd59.js.map": "/keystone-card-activation/static/js/main.6727bd59.js.map"
+    "main.279b9965.js.map": "/keystone-card-activation/static/js/main.279b9965.js.map"
   },
   "entrypoints": [
     "static/css/main.d66548f6.css",
-    "static/js/main.6727bd59.js"
+    "static/js/main.279b9965.js"
   ]
 }
