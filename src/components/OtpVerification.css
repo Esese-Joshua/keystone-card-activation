@@ -1,0 +1,138 @@
+.container{
+    padding: 20px;
+    font-family: sans-serif;
+    text-align: center;
+    /* min-height: 100vh;
+    display: flex;
+    flex-direction: column; */
+    /* background-color: #F2F0EF; */
+}
+
+.header{
+    display: flex;
+    background-color: white;
+    align-items: center;
+    position: relative;
+    padding: 16px 20px;
+}
+
+.arrow-left{
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+    align-items: left;
+}
+
+/* .progress-indicator{
+    display: flex;
+    justify-content: center;
+    flex: 1;
+}
+
+.progress-indicator .dot {
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    background-color: #002d72;
+}
+
+.progress-indicator .dot.active{
+    background-color: #002d72;
+} */
+
+.logo{
+    width: 30%;
+    margin-bottom: 20px;
+
+}
+
+.title {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0;
+    color: #111;
+}
+  
+.subtitle {
+    font-size: 14px;
+    color: grey;
+    margin-top: 6px;
+}
+
+.otp-label{
+    display: block;
+    font-weight: 600;
+    font-size: 14px;
+    margin-top: 40px;
+    text-align: left;
+}
+
+.otp-container{
+    margin-top: 10px;
+    display: flex;
+    /* justify-content: center; */
+    gap: 20px;
+}
+/* .otp-input{
+    width: 50px;
+    height: 25px;
+    margin: 0 5px;
+    font-size: 20px;
+    text-align: center;
+    border-radius: 4px;
+
+} */
+
+.otp-input {
+    width: 3rem;
+    height: 3rem;
+    text-align: center;
+    font-size: 1.125rem;
+    font-weight: 500;
+    /* background-color: hsl(var(--otp-input));
+    border: 1px solid hsl(var(--otp-border)); */
+    border-radius: 0.5rem;
+    color: hsl(var(--text-primary));
+    transition: all 0.2s ease;
+  }
+  
+
+.timer{
+    margin: 10px 0;
+    color: grey;
+    text-align: left;
+}
+
+.btn-primary{
+    margin-top: 30px;
+    width: 100%;
+    background: #003366;
+    color: #fff;
+    border: none;
+    padding: 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 400;
+
+    box-shadow: 0 7px 10px rgba(0, 0, 0, 0.2);
+
+}
+
+.resend-text{
+    margin-top: 20px;
+    font-size: 14px;
+    color: grey;
+}
+
+.resend-text a{
+    color: #002d72;
+    /* font-weight: 500; */
+    text-decoration: none;
+}
+
+.footer img{
+    margin-top: 10px;
+    width: 70%;
+    margin-left: 140px;
+}
