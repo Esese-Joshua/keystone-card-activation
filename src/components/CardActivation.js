@@ -1,12 +1,28 @@
 import React from "react";
 import card from "../img/card.png";
 import logo from "../img/logo.png";
-import user from "../img/user1.png"
+import user from "../img/user1.png";
+import "./CardActivation.css"
 
 const CardActivation = () => {
+  const ProgressIndicator = () => {
+    return(
+      <div className="progress-container">
+        <div className="progress-indicator">
+          <div className="progress-bar active"></div>
+          <div className="progress-bar active"></div>
+          <div className="progress-bar active"></div>
+        </div>
+      </div>
+    )
+  }
 
     return (
-        <div className="container">            
+        <div className="container">   
+          <div className="main-header">
+              <ProgressIndicator  />
+          </div>
+
             <div className="header">
                 <img src={logo} alt="logo" className="logo"/>
                 <div className="profile">

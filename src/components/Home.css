@@ -1,0 +1,38 @@
+.container{
+    padding: 20px;
+    font-family: sans-serif;
+    text-align: center;
+}
+
+.header{
+    display: flex;
+    position: relative;
+    /* padding: 16px 20px; */
+}
+
+.logo {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 16px;
+  position: relative;
+  align-items: center;
+}
+
+.intro{
+    margin-bottom: 1px;
+}
+
+
+.title {
+    margin-top: 50px;
+    font-size: 20px;
+    font-weight: 600px;
+    margin: 0;
+    color: #111;
+}
+  
+.subtitle {
+    font-size: 14px;
+    color: grey;
+    margin-top: 6px;
+}

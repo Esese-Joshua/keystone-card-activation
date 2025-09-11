@@ -23,22 +23,31 @@
     align-items: left;
 }
 
-/* .progress-indicator{
+.progress-container{
+    flex: 1.5;
+}
+
+
+.progress-bar {
+    width: 30px;
+    height: 5px;
+    border-radius: 5px;
+  }
+
+.progress-indicator{
     display: flex;
     justify-content: center;
-    flex: 1;
+    gap: 5px;
+    width: 100%;
 }
 
-.progress-indicator .dot {
-    width: 10px;
-    height: 10px;
-    margin: 0 5px;
+.progress-bar.active{
     background-color: #002d72;
 }
 
-.progress-indicator .dot.active{
-    background-color: #002d72;
-} */
+.progress-bar.inactive{
+    background-color: #818ea2;
+} 
 
 .logo{
     width: 30%;
@@ -59,42 +68,35 @@
     margin-top: 6px;
 }
 
+.otp-section{
+    width: 100%;
+    margin-bottom: 30px;
+}
+
 .otp-label{
     display: block;
     font-weight: 600;
     font-size: 14px;
-    margin-top: 40px;
+    margin-top: 50px;
     text-align: left;
 }
 
-.otp-container{
-    margin-top: 10px;
-    display: flex;
-    /* justify-content: center; */
-    gap: 20px;
+.otp-input-container{
+    margin-top: 20px;
+    justify-content: center;
+    gap: 40px;    
 }
-/* .otp-input{
-    width: 50px;
-    height: 25px;
+
+
+.otp-input{
+    width: 60px;
+    height: 45px;
     margin: 0 5px;
     font-size: 20px;
     text-align: center;
     border-radius: 4px;
-
-} */
-
-.otp-input {
-    width: 3rem;
-    height: 3rem;
-    text-align: center;
-    font-size: 1.125rem;
-    font-weight: 500;
-    /* background-color: hsl(var(--otp-input));
-    border: 1px solid hsl(var(--otp-border)); */
-    border-radius: 0.5rem;
-    color: hsl(var(--text-primary));
-    transition: all 0.2s ease;
-  }
+    color: grey;
+}
   
 
 .timer{
@@ -135,4 +137,33 @@
     margin-top: 10px;
     width: 70%;
     margin-left: 140px;
+}
+
+
+
+
+.progress-container {
+  display: flex;
+  justify-content: center; /* centers horizontally */
+  margin-bottom: 20px;
+}
+
+.progress-indicator {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.progress-bar {
+  width: 30px;
+  height: 6px;
+  border-radius: 5px;
+}
+
+.progress-bar.active {
+  background-color: #002d72; /* navy blue */
+}
+
+.progress-bar.inactive {
+  background-color: #818ea2; /* lighter grey */
 }
