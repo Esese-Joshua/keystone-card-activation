@@ -2,7 +2,6 @@
   "name": "keystone_bank_demo",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://Esese-Joshua.github.io/keystone-card-activation",
 
   "dependencies": {
     "@testing-library/dom": "^10.4.1",
