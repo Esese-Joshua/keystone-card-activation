@@ -104,7 +104,7 @@ const OtpVerification = () => {
         disabled={otpNumber.length !== 6}  
         > Continue </button>
 
-        <p className="resend-text"> Didn't recieve any OTP? <a href=""> Click to resend </a></p>
+        <p className="resend-text"> Didn't recieve any OTP?  Click to resend </p>
 
 
         <div className="footer">
