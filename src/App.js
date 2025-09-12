@@ -4,8 +4,9 @@ import OtpVerification from "./components/OtpVerification";
 import VerifyAcctNum from "./components/VerifyAcctNum";
 import Home from "./components/Home" 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-// import { HashRouter as Router, Routes, Route } from "react-router-dom";
-
+import Pin from "./components/Pin"
+import ConfirmPin from "./components/ConfirmPin";
+import Success from "./components/Success"
 
 function App() {
   return (
@@ -15,6 +16,9 @@ function App() {
         <Route path="/activate-card" element={<CardActivation />} />
         <Route path="/verify-acct" element={<VerifyAcctNum />} /> 
         <Route path="/" element={<Home />} /> 
+        <Route path="/pin" element={<Pin />} /> 
+        <Route path="/confirm-pin" element={<ConfirmPin />} /> 
+        <Route path="/success" element={<Success />} /> 
 
       </Routes>
     </Router>

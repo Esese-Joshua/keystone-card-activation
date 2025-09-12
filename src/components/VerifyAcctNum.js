@@ -4,19 +4,14 @@ import { ArrowLeft } from "lucide-react";
 import logo from "../img/logo.png";
 import footerCard from "../img/footer-card.jpg";
 import "./VerifyAcctNum.css";
+import { accounts } from "../components/accountData";
+
+
 
 const VerifyAcct = () => {
-  const navigate = useNavigate();
-
-  // dummy account numbers
-  const accounts = [
-    { accountNum: "1111111111" },
-    { accountNum: "2222222222" },
-    { accountNum: "3333333333" },
-  ];
-
   const [accountNumber, setAccountNumber] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState(""); 
+  const navigate = useNavigate();
 
   const handleAccountSubmit = () => {
     setErrorMessage(""); // clear old error
@@ -26,16 +21,19 @@ const VerifyAcct = () => {
       return;
     }
 
-    const foundAccount = accounts.find(
-      (acc) => acc.accountNum === accountNumber
-    );
+    // Check if account exists
+    const index = accounts.findIndex(
+      (acct) => acct.accountNum === accountNumber);
 
-    if (foundAccount) {
-      navigate("/otp");
+    if (index !== -1){
+      //save index for otp and pin verification
+      navigate("/otp", {state: { index }})
     } else {
       setErrorMessage("Account number not found. Please check and try again.");
     }
-  };
+  }
+  
+
 
   // Progress Indicator
   const ProgressIndicator = () => {
@@ -85,15 +83,10 @@ const VerifyAcct = () => {
         />
 
         {/* response */}
-        {/* {errorMessage && <p className="error-message">{errorMessage}</p>} */}
         {errorMessage && (
           <p
-            style={{
-              color: "red",
-              fontSize: "12px",
-              marginTop: "5px",
-            }}
-          >
+            style={{ color: "red", fontSize: "14px",
+              marginTop: "8px" }}>
             {errorMessage}
           </p>
         )}
@@ -109,5 +102,6 @@ const VerifyAcct = () => {
     </div>
   );
 };
+
 
 export default VerifyAcct;

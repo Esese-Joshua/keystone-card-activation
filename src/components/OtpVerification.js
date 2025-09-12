@@ -1,46 +1,41 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import OtpInput from "react-otp-input";
 import { ArrowLeft } from "lucide-react"
 import logo from "../img/logo.png"
 import footerCard from "../img/footer-card.jpg"
 import "./OtpVerification.css"
+import { accounts } from "./accountData";
 
 
 const OtpVerification = () => {
-  const navigate = useNavigate();
-  
-    // dummy OTPs
-    const otps = [
-      { otpNum: "111111" },
-      { otpNum: "222222" },
-      { otpNum: "333333" },
-    ];
-  
-    const [otpNumber, setOtp] = useState("");
-    const [errorMessage, setErrorMessage] = useState("");
-  
-    const handleOtpSubmit = () => {
-      setErrorMessage(""); // clear old error
-  
-      if (!otpNumber || otpNumber.trim() === "") {
-        setErrorMessage("OTP field cannot be empty");
-        return;
-      }
+  const navigate = useNavigate();  
+  const location = useLocation();
+  const {index} = location.state || {};
 
-      if (otpNumber.length !== 6 || !/^\d{6}$/.test(otpNumber)) {
-        setErrorMessage("Please enter a valid 6-digit OTP");
-        return;
-      }
+  const [otpNumber, setOtp] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
   
-      const foundOtp = otps.find((otp) => otp.otpNum === otpNumber);
-  
-      if (foundOtp) {
-        navigate("/activate-card");
-      } else {
-        setErrorMessage("Incorrect OTP. Please check and try again.");
-      }
-    };
+  const handleSubmit = () => {
+    setErrorMessage(""); // clear old error
+
+    if (!otpNumber || otpNumber.trim() === "") {
+      setErrorMessage("OTP field cannot be empty");
+      return;
+    }
+
+    if (otpNumber.length !== 6 || !/^\d{6}$/.test(otpNumber)) {
+      setErrorMessage("Please enter a valid 6-digit OTP");
+      return;
+    }
+
+
+    if (accounts[index].otp === otpNumber) {
+      navigate("/activate-card", { state: {index}} );
+    } else {
+      setErrorMessage("Incorrect OTP. Please check and try again.");
+    }
+  };
 
 
   // Progree Indicator
@@ -100,12 +95,10 @@ const OtpVerification = () => {
           <span> 0:20 </span>
         </div>
 
-        <button className="btn-primary" onClick={handleOtpSubmit}
-        disabled={otpNumber.length !== 6}  
+        <button className="btn-primary" onClick={handleSubmit}
         > Continue </button>
 
         <p className="resend-text"> Didn't recieve any OTP?  Click to resend </p>
-
 
         <div className="footer">
           <img src={footerCard} alt="footer-card" />
