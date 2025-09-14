@@ -11,7 +11,7 @@ const ConfirmPin = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { index } = location.state || {};
-  const [confirmPin, setConfirmPin] = useState("");
+  const [pin, setConfirmPin] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
 
@@ -26,17 +26,17 @@ const ConfirmPin = () => {
   const handleConfirmPinSubmit = () => {
     setErrorMessage(""); // clear old error
 
-    if (!confirmPin || confirmPin.trim() === "") {
+    if (!pin || pin.trim() === "") {
       setErrorMessage("PIN field cannot be empty");
       return;
     }    
 
-    if (confirmPin.length !== 4 || !/^\d{4}$/.test(confirmPin)) {
+    if (pin.length !== 4 || !/^\d{4}$/.test(pin)) {
       setErrorMessage("Please enter a valid 4-digit PIN");
       return;
     }
 
-    if (accounts[index].pin === confirmPin) {
+    if (accounts[index].pin === pin) {
       navigate("/success", { state: { index } });
     } else {
       setErrorMessage("PIN does not match. Please try again");
@@ -85,7 +85,7 @@ const ConfirmPin = () => {
           placeholder="PIN"
           maxLength="4"
           autoFocus
-          value={confirmPin}
+          value={pin}
           onChange={(e) => setConfirmPin(e.target.value)}
         />
 

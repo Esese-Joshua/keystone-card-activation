@@ -13,7 +13,7 @@
 .logo {
   width: 64px;
   height: 64px;
-  margin: 0 auto 16px;
+  margin: 0 auto 10px;
   position: relative;
   align-items: center;
 }
@@ -24,7 +24,7 @@
 
 
 .title {
-    margin-top: 50px;
+    margin-top: 30px;
     font-size: 20px;
     font-weight: 600px;
     margin: 0;
@@ -36,3 +36,19 @@
     color: grey;
     margin-top: 6px;
 }
+
+/* .btn-primary {
+  margin-top: 70px;
+  width: 100%;
+  background: #003366;
+  color: #fff;
+  border: none;
+  padding: 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 400;
+
+  box-shadow: 0 7px 10px rgba(0, 0, 0, 0.2);
+
+} */

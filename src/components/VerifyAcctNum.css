@@ -1,7 +1,22 @@
-.container{
+/* .container{
     padding: 20px;
     font-family: sans-serif;
     text-align: center;
+} */
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  min-height: 100vh;
+  padding: 16px;
+  font-family: sans-serif;
+  text-align: center;
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* max-width: 100%; */
+  margin: 0 auto;
+  box-sizing: border-box;
 }
 
 .header{
@@ -58,7 +73,9 @@
 .logo{
     width: 30%;
     margin-bottom: 20px;
-
+    max-width: 140px;
+    min-width: 80px; 
+    margin: 0 auto 20px; /* center it */
 }
 
 .title {
@@ -92,8 +109,8 @@
 }
 
 .acctnum-input{
-    width: 93%;
-    /* margin-right: 20px; */
+    width: 100%;
+    margin-right: 20px;
     padding: 15px 12px;
     border-radius: 8px;
     font-size: 16px;
@@ -101,7 +118,7 @@
 
 
 .btn-primary{
-    margin-top: 100px;
+    margin-top: 70px;
     width: 100%;
     background: #003366;
     color: #fff;
@@ -114,8 +131,14 @@
     box-shadow: 0 7px 10px rgba(0, 0, 0, 0.2);
 }
 
+.footer {
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
 .footer img{
-    margin-top: 40px;
-    width: 70%;
-    margin-left: 140px;
+    max-width: 100%;
+    height: auto;
 }

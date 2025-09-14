@@ -34,9 +34,10 @@ const CardActivation = () => {
           <ProgressIndicator  />
       </div>
 
-      <div className="header">
+      <div className="header-profile">
         <img src={logo} alt="logo" className="logo" />
-        <div className="profile">
+
+        <div className="user-profile">
           <img src={user} alt="user" className="user" />
           <div className="account-info">
             <span className="acct-num">0123456789</span>
@@ -69,3 +70,4 @@ const CardActivation = () => {
 };
 
 export default CardActivation;
+

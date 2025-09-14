@@ -50,6 +50,7 @@ const VerifyAcct = () => {
 
   return (
     <div className="container">
+    
       <div className="header">
         <ArrowLeft
           className="arrow-left"

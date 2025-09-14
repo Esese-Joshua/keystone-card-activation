@@ -62,7 +62,7 @@ const OtpVerification = () => {
               <ProgressIndicator  />
           </div>
 
-          <div className="logo-container">
+          <div className="">
             <img src={logo} alt="logo" className="logo"/>
           </div>
 

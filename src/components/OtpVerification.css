@@ -52,7 +52,7 @@
 .logo{
     width: 30%;
     margin-bottom: 20px;
-
+    align-items: center;
 }
 
 .title {
@@ -84,7 +84,9 @@
 .otp-input-container{
     margin-top: 20px;
     justify-content: center;
-    gap: 40px;    
+    gap: 20px;    
+    flex-wrap: wrap;
+    display: flex;
 }
 
 
@@ -140,30 +142,3 @@
 }
 
 
-
-
-.progress-container {
-  display: flex;
-  justify-content: center; /* centers horizontally */
-  margin-bottom: 20px;
-}
-
-.progress-indicator {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-}
-
-.progress-bar {
-  width: 30px;
-  height: 6px;
-  border-radius: 5px;
-}
-
-.progress-bar.active {
-  background-color: #002d72; /* navy blue */
-}
-
-.progress-bar.inactive {
-  background-color: #818ea2; /* lighter grey */
-}
