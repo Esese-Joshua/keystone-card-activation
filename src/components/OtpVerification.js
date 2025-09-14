@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import OtpInput from "react-otp-input";
 import { ArrowLeft } from "lucide-react"
 import logo from "../img/logo.png"
-import footerCard from "../img/footer-card.jpg"
+import footerCard from "../img/footer.jpg"
 import "./OtpVerification.css"
 import { accounts } from "./accountData";
 

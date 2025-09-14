@@ -2,7 +2,7 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import logo from "../img/logo.png";
-import footerCard from "../img/footer-card.jpg";
+import footerCard from "../img/footer.jpg";
 import "./VerifyAcctNum.css";
 import { accounts } from "./accountData";
 

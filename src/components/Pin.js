@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import logo from "../img/logo.png";
-import footerCard from "../img/footer-card.jpg";
+import footerCard from "../img/footer.jpg";
 import "./VerifyAcctNum.css";
 import { accounts } from "./accountData";
 
@@ -33,11 +33,19 @@ const Pin = () => {
       return;
     }
 
-    if (accounts[index].pin === pin) {
-      navigate("/confirm-pin", { state: { index } });
-    } else {
-      setErrorMessage("Incorrect PIN. Please check and try again");
-    }
+    // if (accounts[index].pin === pin) {
+    //   navigate("/confirm-pin", { state: { index } });
+    // } else {
+    //   setErrorMessage("Incorrect PIN. Please check and try again");
+    // }
+
+    // Save pin into localStorage for this account
+    const updatedAccounts = [...accounts];
+    updatedAccounts[index].pin = pin;
+
+    localStorage.setItem("accounts", JSON.stringify(updatedAccounts));
+
+    navigate("/confirm-pin", { state: { index } });
   };
 
   // Progress Indicator

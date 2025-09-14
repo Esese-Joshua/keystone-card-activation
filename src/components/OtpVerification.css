@@ -84,15 +84,16 @@
 .otp-input-container{
     margin-top: 20px;
     justify-content: center;
-    gap: 20px;    
+    gap: 10px;    
     flex-wrap: wrap;
     display: flex;
+    width: 100%;
 }
 
 
 .otp-input{
-    width: 60px;
-    height: 45px;
+    width: 40px !important;
+    height: 50px;
     margin: 0 5px;
     font-size: 20px;
     text-align: center;
@@ -135,10 +136,14 @@
     text-decoration: none;
 }
 
-.footer img{
-    margin-top: 10px;
-    width: 70%;
-    margin-left: 140px;
+.footer {
+    margin-top: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
 }
 
-
+.footer img{
+    max-width: 50%;
+    height: auto;
+}
