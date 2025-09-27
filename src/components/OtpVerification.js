@@ -5,8 +5,8 @@ import { ArrowLeft } from "lucide-react"
 import logo from "../img/logo.png"
 import footerCard from "../img/footer.jpg"
 import "./OtpVerification.css"
-import { accounts } from "./accountData";
- 
+import Countdown from "react-countdown";
+
 
 const OtpVerification = () => {
   const navigate = useNavigate();  
@@ -43,6 +43,16 @@ const OtpVerification = () => {
       setErrorMessage("Incorrect OTP. Please check and try again.");
     }
   };
+
+  // Countdown Renderer
+  const countdownRenderer = ({ minutes, seconds, completed }) => {
+    if (completed) {
+      return <span style={{color: "red"}}>OTP expired. Please request a new one.</span>;
+    } else {
+      return <span style={{ color: minutes === 0 && seconds <= 30 ? "red" : "green" }}> {minutes}:{seconds < 10 ? `0${seconds}` : seconds} </span>;
+    }
+  };
+
 
   // Progree Indicator
   const ProgressIndicator = () => {
@@ -99,7 +109,7 @@ const OtpVerification = () => {
         )}
 
         <div className="timer">
-          <span> 0:20 </span>
+          <Countdown date={otpExpiry} renderer={countdownRenderer} />
         </div>
 
         <button className="btn-primary" onClick={handleSubmit}
