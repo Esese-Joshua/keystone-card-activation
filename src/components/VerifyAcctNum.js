@@ -5,13 +5,14 @@ import logo from "../img/logo.png";
 import footerCard from "../img/footer.jpg";
 import "./VerifyAcctNum.css";
 import { accounts } from "../components/accountData";
-
+import emailjs from "emailjs-com"
 
 
 const VerifyAcct = () => {
   const [accountNumber, setAccountNumber] = useState("");
   const [errorMessage, setErrorMessage] = useState(""); 
   const navigate = useNavigate();
+  const [otp, setOtp] = useState(null)
 
   const handleAccountSubmit = () => {
     setErrorMessage(""); // clear old error
@@ -20,20 +21,38 @@ const VerifyAcct = () => {
       setErrorMessage("Please enter a valid 10-digit account number");
       return;
     }
-
+ 
     // Check if account exists
     const index = accounts.findIndex(
       (acct) => acct.accountNum === accountNumber);
 
     if (index !== -1){
-      //save index for otp and pin verification
-      navigate("/otp", {state: { index }})
+      // generate random OTP
+      const generateOtp = Math.floor(100000 + Math.random() * 900000);
+      const otpExpiry = Date.now() + 5 * 60 * 1000; // 5 minutes 
+      setOtp(generateOtp);
+
+      // send otp to email using EmailJS
+      emailjs.send(
+        "service_54s66c9",
+        "template_6l3vwxb",
+        {
+          to_email: accounts[index].email,
+          otp: generateOtp,
+        },
+        "jOMQys6iSkxvxvSfK" 
+      )
+      .then(() => { 
+        alert("OTP sent to your registered email address, please check your inbox.");
+        navigate("/otp", { state: { index, generateOtp, otpExpiry } });
+      })
+      .catch((error) => {
+        alert("Failed to send OTP. Please try again later.", error);
+      });
     } else {
       setErrorMessage("Account number not found. Please check and try again.");
-    }
-  }
-  
-
+      }
+    }  
 
   // Progress Indicator
   const ProgressIndicator = () => {

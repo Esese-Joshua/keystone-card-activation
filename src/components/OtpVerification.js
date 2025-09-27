@@ -6,12 +6,12 @@ import logo from "../img/logo.png"
 import footerCard from "../img/footer.jpg"
 import "./OtpVerification.css"
 import { accounts } from "./accountData";
-
+ 
 
 const OtpVerification = () => {
   const navigate = useNavigate();  
   const location = useLocation();
-  const {index} = location.state || {};
+  const {index, generateOtp, otpExpiry} = location.state || {};
 
   const [otpNumber, setOtp] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -21,7 +21,7 @@ const OtpVerification = () => {
 
     if (!otpNumber || otpNumber.trim() === "") {
       setErrorMessage("OTP field cannot be empty");
-      return;
+      return; 
     }
 
     if (otpNumber.length !== 6 || !/^\d{6}$/.test(otpNumber)) {
@@ -29,14 +29,20 @@ const OtpVerification = () => {
       return;
     }
 
+    // Check if OTP is expired
+    const currentTime = new Date().getTime();
+    if (currentTime > otpExpiry) {
+      setErrorMessage("OTP has expired. Please request a new one.");
+      return;
+    }
 
-    if (accounts[index].otp === otpNumber) {
+    // Validate OTP
+    if ( parseInt(otpNumber, 10) === generateOtp) {
       navigate("/activate-card", { state: {index}} );
     } else {
       setErrorMessage("Incorrect OTP. Please check and try again.");
     }
   };
-
 
   // Progree Indicator
   const ProgressIndicator = () => {
@@ -84,6 +90,7 @@ const OtpVerification = () => {
               containerStyle="otp-input-container"
             />
         </div>
+        
 
         {errorMessage && (
           <p style={{ color: "red", fontSize: "14px", textAlign:"left", marginTop: "8px"}}>
