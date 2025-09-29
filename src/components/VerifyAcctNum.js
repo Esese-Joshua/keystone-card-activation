@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import logo from "../img/logo.png";
@@ -11,7 +11,19 @@ import emailjs from "emailjs-com"
 const VerifyAcct = () => {
   const [accountNumber, setAccountNumber] = useState("");
   const [errorMessage, setErrorMessage] = useState(""); 
+  const [accounts, setAccounts] = useState([]);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    // load accounts from localStorage if available otherwise use default.
+    const savedAccounts = localStorage.getItem("accounts");
+    if (savedAccounts) {
+      setAccounts(JSON.parse(savedAccounts));
+    } else {
+      const { accounts } = require("../components/accountData");
+      setAccounts(accounts);
+    };
+  }, []);
 
   const handleAccountSubmit = async () => {
     setErrorMessage(""); // clear old error
@@ -24,6 +36,8 @@ const VerifyAcct = () => {
     // Check if account exists
     const index = accounts.findIndex(
       (acct) => acct.accountNum === accountNumber);
+    
+    const to_email = accounts[index]?.email
 
 
     if (index !== -1){
@@ -31,6 +45,11 @@ const VerifyAcct = () => {
       const generateOtp = Math.floor(100000 + Math.random() * 900000);
       const otpExpiry = Date.now() + 5 * 60 * 1000; // 5 minutes 
       const to_email = accounts[index].email;
+
+      if (!to_email) {
+        setErrorMessage("No email associated with this account number.");
+        return;
+      }
         
       // send otp to email using EmailJS
       emailjs.send(
