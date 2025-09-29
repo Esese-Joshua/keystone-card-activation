@@ -4,21 +4,26 @@ import { ArrowLeft } from "lucide-react";
 import logo from "../img/logo.png";
 import footerCard from "../img/footer.jpg";
 import "./VerifyAcctNum.css";
-import { accounts as defaultAccounts } from "../components/accountData";
+import { defaultAccounts } from "../components/accountData";
 import emailjs from "emailjs-com"
 
 
 const VerifyAcct = () => {
   const [accountNumber, setAccountNumber] = useState("");
   const [errorMessage, setErrorMessage] = useState(""); 
-  const [accounts, setAccounts] = useState([]);
+  const [accounts, setAccounts] = useState([defaultAccounts]);
 
   useEffect(() => {
     // Load accounts from localStorage or use default accounts
     const savedAccounts = JSON.parse(localStorage.getItem("accounts"));
+    console.log("Save accounts from localStorage:", savedAccounts)
+
+    import("../components/accountData").then(({ accounts: defaultAccounts }) => {
+      console.log("Default accounts from AccountData,js", defaultAccounts)
     setAccounts(savedAccounts || defaultAccounts);
+    })
   }, []);
-  
+
   const navigate = useNavigate();
 
   const handleAccountSubmit = async () => {
