@@ -12,7 +12,6 @@ const VerifyAcct = () => {
   const [accountNumber, setAccountNumber] = useState("");
   const [errorMessage, setErrorMessage] = useState(""); 
   const navigate = useNavigate();
-  // const [otp, setOtp] = useState(null)
 
   const handleAccountSubmit = async () => {
     setErrorMessage(""); // clear old error
@@ -26,13 +25,14 @@ const VerifyAcct = () => {
     const index = accounts.findIndex(
       (acct) => acct.accountNum === accountNumber);
 
+
     if (index !== -1){
       // generate random OTP
       const generateOtp = Math.floor(100000 + Math.random() * 900000);
       const otpExpiry = Date.now() + 5 * 60 * 1000; // 5 minutes 
       const to_email = accounts[index].email;
 
-      console.log("accounts", accounts[index].email);
+      console.log("accountsASVCSCSAAC", to_email);
       console.log("otp", generateOtp);
       console.log("index", index);
 
@@ -42,7 +42,7 @@ const VerifyAcct = () => {
         "service_54s66c9",
         "template_6l3vwxb",
         {
-          to_email: accounts[index].email,
+          email: to_email,
           otp: generateOtp,
         },
         "jOMQys6iSkxvxvSfK" 
