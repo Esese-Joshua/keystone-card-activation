@@ -12,9 +12,9 @@ const VerifyAcct = () => {
   const [accountNumber, setAccountNumber] = useState("");
   const [errorMessage, setErrorMessage] = useState(""); 
   const navigate = useNavigate();
-  const [otp, setOtp] = useState(null)
+  // const [otp, setOtp] = useState(null)
 
-  const handleAccountSubmit = () => {
+  const handleAccountSubmit = async () => {
     setErrorMessage(""); // clear old error
 
     if (accountNumber.length !== 10 || !/^\d{10}$/.test(accountNumber)) {
@@ -30,8 +30,13 @@ const VerifyAcct = () => {
       // generate random OTP
       const generateOtp = Math.floor(100000 + Math.random() * 900000);
       const otpExpiry = Date.now() + 5 * 60 * 1000; // 5 minutes 
-      setOtp(generateOtp);
+      const to_email = accounts[index].email;
 
+      console.log("accounts", accounts[index].email);
+      console.log("otp", generateOtp);
+      console.log("index", index);
+
+        
       // send otp to email using EmailJS
       emailjs.send(
         "service_54s66c9",

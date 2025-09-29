@@ -47,7 +47,7 @@ const OtpVerification = () => {
   // Countdown Renderer
   const countdownRenderer = ({ minutes, seconds, completed }) => {
     if (completed) {
-      return <span style={{color: "red"}}>OTP expired. Please request a new one.</span>;
+      return <span style={{color: "red"}}> </span>;
     } else {
       return <span style={{ color: minutes === 0 && seconds <= 30 ? "red" : "green" }}> {minutes}:{seconds < 10 ? `0${seconds}` : seconds} </span>;
     }
