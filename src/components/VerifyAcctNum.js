@@ -31,21 +31,16 @@ const VerifyAcct = () => {
       const generateOtp = Math.floor(100000 + Math.random() * 900000);
       const otpExpiry = Date.now() + 5 * 60 * 1000; // 5 minutes 
       const to_email = accounts[index].email;
-
-      console.log("accountsASVCSCSAAC", to_email);
-      console.log("otp", generateOtp);
-      console.log("index", index);
-
         
       // send otp to email using EmailJS
       emailjs.send(
         "service_54s66c9",
         "template_6l3vwxb",
         {
-          email: to_email,
+          recipient_email: to_email,
           otp: generateOtp,
         },
-        "jOMQys6iSkxvxvSfK" 
+        "jOMQys6iSkxvxvSfK" // public key
       )
       .then(() => { 
         alert("OTP sent to your registered email address, please check your inbox.");
