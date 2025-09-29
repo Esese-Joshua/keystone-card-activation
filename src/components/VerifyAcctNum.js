@@ -4,7 +4,7 @@ import { ArrowLeft } from "lucide-react";
 import logo from "../img/logo.png";
 import footerCard from "../img/footer.jpg";
 import "./VerifyAcctNum.css";
-import { accounts } from "../components/accountData";
+import { accounts as defaultAccounts } from "../components/accountData";
 import emailjs from "emailjs-com"
 
 
@@ -12,18 +12,14 @@ const VerifyAcct = () => {
   const [accountNumber, setAccountNumber] = useState("");
   const [errorMessage, setErrorMessage] = useState(""); 
   const [accounts, setAccounts] = useState([]);
-  const navigate = useNavigate();
 
   useEffect(() => {
-    // load accounts from localStorage if available otherwise use default.
-    const savedAccounts = localStorage.getItem("accounts");
-    if (savedAccounts) {
-      setAccounts(JSON.parse(savedAccounts));
-    } else {
-      const { accounts } = require("../components/accountData");
-      setAccounts(accounts);
-    };
+    // Load accounts from localStorage or use default accounts
+    const savedAccounts = JSON.parse(localStorage.getItem("accounts"));
+    setAccounts(savedAccounts || defaultAccounts);
   }, []);
+  
+  const navigate = useNavigate();
 
   const handleAccountSubmit = async () => {
     setErrorMessage(""); // clear old error
@@ -36,9 +32,6 @@ const VerifyAcct = () => {
     // Check if account exists
     const index = accounts.findIndex(
       (acct) => acct.accountNum === accountNumber);
-    
-    const to_email = accounts[index]?.email
-
 
     if (index !== -1){
       // generate random OTP
@@ -72,6 +65,7 @@ const VerifyAcct = () => {
       setErrorMessage("Account number not found. Please check and try again.");
       }
     }  
+
 
   // Progress Indicator
   const ProgressIndicator = () => {
