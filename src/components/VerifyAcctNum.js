@@ -1,29 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import logo from "../img/logo.png";
 import footerCard from "../img/footer.jpg";
 import "./VerifyAcctNum.css";
-import { defaultAccounts } from "../components/accountData";
+import { accounts } from "../components/accountData";
 import emailjs from "emailjs-com"
 
 
 const VerifyAcct = () => {
   const [accountNumber, setAccountNumber] = useState("");
   const [errorMessage, setErrorMessage] = useState(""); 
-  const [accounts, setAccounts] = useState([defaultAccounts]);
-
-  useEffect(() => {
-    // Load accounts from localStorage or use default accounts
-    const savedAccounts = JSON.parse(localStorage.getItem("accounts"));
-    console.log("Save accounts from localStorage:", savedAccounts)
-
-    import("../components/accountData").then(({ accounts: defaultAccounts }) => {
-      console.log("Default accounts from AccountData,js", defaultAccounts)
-    setAccounts(savedAccounts || defaultAccounts);
-    })
-  }, []);
-
   const navigate = useNavigate();
 
   const handleAccountSubmit = async () => {
@@ -33,10 +20,13 @@ const VerifyAcct = () => {
       setErrorMessage("Please enter a valid 10-digit account number");
       return;
     }
- 
+    
+    const index = accounts.findIndex(acc => acc.accountNum === accountNumber.toString());
+    console.log("Account Index:", index); // Debugging line
+    
     // Check if account exists
-    const index = accounts.findIndex(
-      (acct) => acct.accountNum === accountNumber);
+    // const index = accounts.findIndex(
+    //   (acct) => acct.accountNum === accountNumber);
 
     if (index !== -1){
       // generate random OTP
