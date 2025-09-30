@@ -21,12 +21,8 @@ const VerifyAcct = () => {
       return;
     }
     
-    const index = accounts.findIndex(acc => acc.accountNum === accountNumber.toString());
-    console.log("Account Index:", index); // Debugging line
-    
     // Check if account exists
-    // const index = accounts.findIndex(
-    //   (acct) => acct.accountNum === accountNumber);
+    const index = accounts.findIndex(acc => acc.accountNum === accountNumber.toString());    
 
     if (index !== -1){
       // generate random OTP
